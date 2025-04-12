@@ -43,6 +43,16 @@
     --sidebar-accent-foreground: 222 47% 11%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 270 50% 60%;
+    
+    /* Folder colors as RGB for gradients */
+    --folder-mint-rgb: 242, 252, 226;
+    --folder-lavender-rgb: 229, 222, 255;
+    --folder-peach-rgb: 253, 225, 211;
+    --folder-blue-rgb: 211, 228, 253;
+    --folder-yellow-rgb: 254, 247, 205;
+    --folder-pink-rgb: 255, 222, 226;
+    --folder-orange-rgb: 254, 198, 161;
+    --folder-gray-rgb: 241, 240, 251;
   }
 
   .dark {
@@ -82,6 +92,16 @@
     --sidebar-accent-foreground: 210 40% 98%;
     --sidebar-border: 217 33% 18%;
     --sidebar-ring: 270 50% 60%;
+    
+    /* Folder colors in dark mode (slightly dimmed) */
+    --folder-mint-rgb: 222, 232, 206;
+    --folder-lavender-rgb: 209, 202, 235;
+    --folder-peach-rgb: 233, 205, 191;
+    --folder-blue-rgb: 191, 208, 233;
+    --folder-yellow-rgb: 234, 227, 185;
+    --folder-pink-rgb: 235, 202, 206;
+    --folder-orange-rgb: 234, 178, 141;
+    --folder-gray-rgb: 221, 220, 231;
   }
 }
 
@@ -114,5 +134,20 @@
   .dark .glass-card {
     background: rgba(30, 30, 38, 0.6);
     border: 1px solid rgba(60, 60, 70, 0.3);
+  }
+  
+  /* Folder color transitions */
+  .folder-transition {
+    transition: background-color 0.5s ease;
+  }
+  
+  /* Note hover effects */
+  .note-hover {
+    transition: all 0.2s ease;
+  }
+  
+  .note-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 }

@@ -7,6 +7,7 @@ import NotesGrid from "./NotesGrid";
 import NoteEditor from "./NoteEditor";
 import FloatingActionButton from "./FloatingActionButton";
 import EmptyState from "./EmptyState";
+import MiniDashboard from "./MiniDashboard";
 import { getRecentNotes } from "@/lib/helpers";
 
 const HomeScreen: React.FC = () => {
@@ -36,6 +37,19 @@ const HomeScreen: React.FC = () => {
   // Function to get folder name
   const getFolderName = (folderId: string) => {
     return folders.find(folder => folder.id === folderId)?.name || "Unknown";
+  };
+
+  // Choose a random inspirational quote for empty state
+  const getRandomQuote = () => {
+    const quotes = [
+      "The scariest moment is always just before you start.",
+      "Ideas are worthless. Execution is everything.",
+      "Start where you are. Use what you have. Do what you can.",
+      "Your ideas go here ✨ Start typing!",
+      "Don't wait for inspiration. It comes while working.",
+      "The best way to get started is to quit talking and begin doing."
+    ];
+    return quotes[Math.floor(Math.random() * quotes.length)];
   };
   
   return (
@@ -79,12 +93,17 @@ const HomeScreen: React.FC = () => {
       
       {/* Main content area */}
       <main className="flex-1 overflow-auto p-4">
+        {/* Mini Dashboard */}
+        {notes.length > 0 && !activeNote && <MiniDashboard />}
+        
         {notes.length === 0 && !activeNote && (
           <EmptyState
             title="No Notes Yet"
             description="Create your first note to get started. You can organize notes in folders and use tags for easy filtering."
             action={() => {}} // This will be handled by the FloatingActionButton
             actionLabel="Create Note"
+            quote={getRandomQuote()}
+            icon="✨"
           />
         )}
         
